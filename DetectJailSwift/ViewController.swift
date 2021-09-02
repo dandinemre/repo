@@ -21,13 +21,13 @@ class ViewController: UIViewController {
     
     @IBAction func testButtonClicked(_ sender: Any) {
         
-        if isJailbroken() {
+        if isBroken() {
             resultLabel.text = "Hacker, Jailbreak!"
         } else {
             performSegue(withIdentifier: "toSecondVC", sender: nil)
         }
     }
-    func isJailbroken() -> Bool {
+    func isBroken() -> Bool {
         
         guard let cydiaUrlScheme = NSURL(string: "cydia://package/com.example.package") else { return false }
         if UIApplication.shared.canOpenURL(cydiaUrlScheme as URL) {
