@@ -21,14 +21,15 @@ class ViewController: UIViewController {
     
     @IBAction func testButtonClicked(_ sender: Any) {
         
+
         if isBroken() {
             resultLabel.text = "Hacker, Jailbreak!"
         } else {
             performSegue(withIdentifier: "toSecondVC", sender: nil)
         }
     }
-    func isBroken() -> Bool {
-        
+
+    func isBroken() -> Bool {       
         guard let cydiaUrlScheme = NSURL(string: "cydia://package/com.example.package") else { return false }
         if UIApplication.shared.canOpenURL(cydiaUrlScheme as URL) {
             return true
@@ -45,6 +46,7 @@ class ViewController: UIViewController {
             fileManager.fileExists(atPath: "/bin/bash") ||
             fileManager.fileExists(atPath: "/usr/sbin/sshd") ||
             fileManager.fileExists(atPath: "/etc/apt") ||
+          //fileManager.fileExists(atPath: "/usr/bin/ssh") ||#
             fileManager.fileExists(atPath: "/usr/bin/ssh") ||
             fileManager.fileExists(atPath: "/private/var/lib/apt"){
             return true
