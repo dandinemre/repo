@@ -45,7 +45,7 @@ class ViewController: UIViewController {
             fileManager.fileExists(atPath: "/bin/bash") ||
             fileManager.fileExists(atPath: "/usr/sbin/sshd") ||
             fileManager.fileExists(atPath: "/etc/apt") ||
-            fileManager.fileExists(atPath: "/usr/bin/ssh") ||
+        //fileManager.fileExists(atPath: "/usr/bin/ssh") ||#
             fileManager.fileExists(atPath: "/private/var/lib/apt"){
             return true
         }
